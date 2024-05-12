@@ -1,0 +1,50 @@
+---
+# - name: Add external-provisioner chart repo
+#   kubernetes.core.helm_repository:
+#     name: stable
+#     repo_url: "https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner"
+
+# - name: Deploy latest version of NFS provisioner chart
+#   kubernetes.core.helm:
+#     name: nfs-provisioner
+#     chart_ref: nfs-subdir-external-provisioner/nfs-subdir-external-provisioner
+#     release_namespace: nfs-provisioner
+#     create_namespace: true
+#     values:
+#       nfs:
+#         server: "{{ nfs_ip }}"
+#         path: /data
+
+- name: Create pvc for webapp locust jobs
+  kubernetes.core.k8s:
+    state: present
+    namespace: dev
+    definition:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        name: locust-webapp-pvc
+      spec:
+        accessModes:
+          - ReadWriteMany
+        resources:
+          requests:
+            storage: 256Mi
+        storageClassName: nfs-client
+
+- name: Create pvc for serving locust jobs
+  kubernetes.core.k8s:
+    state: present
+    namespace: dev
+    definition:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        name: locust-serving-pvc
+      spec:
+        accessModes:
+          - ReadWriteMany
+        resources:
+          requests:
+            storage: 256Mi
+        storageClassName: nfs-client
