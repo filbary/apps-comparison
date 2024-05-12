@@ -2,7 +2,7 @@
 - name: Delete deployments
   kubernetes.core.helm:
     name: "{{ deploy.name }}"
-    chart_ref: mygithub/{{ deploy.name }}
+    chart_ref: apps-comparison-repo/{{ deploy.name }}
     namespace: "{{ namespace }}"
     update_repo_cache: yes
     kubeconfig: "{{ kubeconfig }}"

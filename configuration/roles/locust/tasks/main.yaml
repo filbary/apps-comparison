@@ -1,13 +1,13 @@
 ---
-- name: Ensure mygithub repo exists
+- name: Ensure apps-comparison-repo repo exists
   kubernetes.core.helm_repository:
-    name: mygithub
-    repo_url: https://filbary.github.io/test
+    name: apps-comparison-repo
+    repo_url: https://filbary.github.io/apps-comparison
 
 - name: Ensure locust is deployed
   kubernetes.core.helm:
     name: locust
-    chart_ref: mygithub/locust
+    chart_ref: apps-comparison-repo/locust
     namespace: "{{ namespace }}"
     update_repo_cache: yes
     kubeconfig: "{{ kubeconfig }}"
