@@ -24,7 +24,7 @@ This project was created to conduct performance tests and comparisons between tw
   - lint - the linters analyse the code (Go and Python) and look for potential errors, also the tests are ran for Go project
   - build_and_push - docker images are built and pushed to docker hub
   - helm_lint - the linter verifies, whether the charts will be created correctly
-  - release - helm charts are packaged and pushed to github pages on the same repository (available to be downloaded from https://filbary.github.io/test)
+  - release - helm charts are packaged and pushed to github pages on the same repository (available to be downloaded from https://filbary.github.io/apps-comparison)
 * **src** - in this directory there are 3 folders, each representing different app:
   - webapp - The Go backend server has a single endpoint /convert that accepts POST requests with the body: {"fahrenheit": float}, returning the Celsius value along with a special random identifier, which is unique for each instance of this app
   - serving - The TensorFlow Serving system includes a computational graph that converts Fahrenheit temperatures to Celsius. It offers an endpoint, /v1/models/model:predict, which accepts POST requests with the body: {"inputs": float}.
