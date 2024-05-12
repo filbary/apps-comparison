@@ -5,15 +5,6 @@ image:
   pullPolicy: Always
   tag: "latest"
 
-# config: |
-#   locustfile = ./locustfile.py
-#   headless = true
-#   host = http://testgo:8080
-#   users = 10
-#   spawn-rate = 10
-#   run-time = 5s
-#   csv = example
-
 config: |
   locustfile = ./locustfiles
   class-picker = true
@@ -48,15 +39,8 @@ podAnnotations: {}
 podLabels: {}
 
 podSecurityContext: {}
-  # fsGroup: 2000
 
 securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
 
 service:
   type: NodePort
@@ -64,16 +48,12 @@ service:
   nodePort: 31700
 
 resources: {}
-  # requests:
-  #   cpu: 1000m
-  #   memory: 6Gi
 
 volumes:
 - name: config
   configMap:
     name: locust
 
-# Additional volumeMounts on the output Deployment definition.
 volumeMounts:
 - name: config
   mountPath: "/etc/mylocust"

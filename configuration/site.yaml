@@ -3,10 +3,10 @@
   gather_facts: false
   become: false
   tasks:
-    # - include_role:
-    #     name: namespaces
-    # - include_role:
-    #     name: volumes
+    - include_role:
+        name: namespaces
+    - include_role:
+        name: volumes
     - include_role:
         name: reset
 
