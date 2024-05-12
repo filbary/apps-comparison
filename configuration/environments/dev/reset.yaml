@@ -1,8 +1,0 @@
----
-all:
-  vars:
-    reset:
-      deployments:
-        - name: locust
-        - name: webapp
-        - name: serving
