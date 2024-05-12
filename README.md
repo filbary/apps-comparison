@@ -37,7 +37,7 @@ This project was created to conduct performance tests and comparisons between tw
 * **results** - here are statistics and reports downloaded from locust web UI
 
 ## Setup
-To build and push Docker images and Helm charts, simply commit to the main branch or create a pull request. To deploy the applications, start the run.sh script located in the configuration directory. To initiate tests, either navigate to the Locust web UI exposed by the node port, port forward to Locust, or trigger the CronJobs :)
+To build and push Docker images and Helm charts, simply commit to the main branch or create a pull request. To deploy the applications, start the run.sh script located in the configuration directory (remember to put kube config file to "/configuration/kubeconfig/config"). To initiate tests, either navigate to the Locust web UI exposed by the node port, port forward to Locust, or trigger the CronJobs :)
  
 ## App view
 ![image](https://github.com/filbary/test/assets/62804065/c37fb375-5a39-43d7-8cea-6051daebee19)
